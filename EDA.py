@@ -35,19 +35,19 @@ class SuperheroEDA:
         
     def load_data(self):
         """Load and perform initial data inspection"""
-        print("📊 Loading superhero dataset...")
+        print(" Loading superhero dataset...")
         
         try:
             self.data = pd.read_csv(self.data_path)
-            print(f"✅ Dataset loaded successfully!")
-            print(f"📏 Shape: {self.data.shape[0]} rows × {self.data.shape[1]} columns")
+            print(f" Dataset loaded successfully!")
+            print(f" Shape: {self.data.shape[0]} rows × {self.data.shape[1]} columns")
             
             # Identify feature types
             self.numerical_features = self.data.select_dtypes(include=[np.number]).columns.tolist()
             self.categorical_features = self.data.select_dtypes(include=['object']).columns.tolist()
             
-            print(f"🔢 Numerical features: {len(self.numerical_features)}")
-            print(f"📝 Categorical features: {len(self.categorical_features)}")
+            print(f" Numerical features: {len(self.numerical_features)}")
+            print(f" Categorical features: {len(self.categorical_features)}")
             
             return self.data
             
@@ -58,7 +58,7 @@ class SuperheroEDA:
     
     def basic_analysis(self):
         """Perform basic statistical analysis"""
-        print("\n📈 BASIC STATISTICAL ANALYSIS")
+        print("\n BASIC STATISTICAL ANALYSIS")
         print("-" * 50)
         
         basic_stats = {
@@ -76,13 +76,13 @@ class SuperheroEDA:
         # Target variable analysis
         if 'win_prob' in self.data.columns:
             win_prob_stats = self.data['win_prob'].describe()
-            print(f"\n🎯 Target Variable (win_prob) Statistics:")
+            print(f"\n Target Variable (win_prob) Statistics:")
             print(win_prob_stats)
             
             # Create binary target
             self.data['win_binary'] = (self.data['win_prob'] > 0.5).astype(int)
             class_distribution = self.data['win_binary'].value_counts()
-            print(f"\n📊 Binary Classification Distribution:")
+            print(f"\n Binary Classification Distribution:")
             print(f"Winners (>0.5): {class_distribution.get(1, 0)} ({class_distribution.get(1, 0)/len(self.data)*100:.1f}%)")
             print(f"Losers (≤0.5): {class_distribution.get(0, 0)} ({class_distribution.get(0, 0)/len(self.data)*100:.1f}%)")
             
@@ -93,7 +93,7 @@ class SuperheroEDA:
     
     def data_quality_analysis(self):
         """Analyze data quality issues"""
-        print("\n🔍 DATA QUALITY ANALYSIS")
+        print("\n DATA QUALITY ANALYSIS")
         print("-" * 50)
         
         # Missing value analysis
@@ -112,7 +112,7 @@ class SuperheroEDA:
         # Identify high missing value columns
         high_missing = missing_data[missing_data['Missing_Percentage'] > 20]
         if not high_missing.empty:
-            print(f"\n⚠️ Columns with >20% missing values:")
+            print(f"\n Columns with >20% missing values:")
             for _, row in high_missing.iterrows():
                 print(f"  • {row['Column']}: {row['Missing_Percentage']:.1f}%")
         
@@ -145,7 +145,7 @@ class SuperheroEDA:
     
     def correlation_analysis(self):
         """Analyze correlations between features"""
-        print("\n🔗 CORRELATION ANALYSIS")
+        print("\n CORRELATION ANALYSIS")
         print("-" * 50)
         
         # Calculate correlation matrix for numerical features
@@ -187,7 +187,7 @@ class SuperheroEDA:
     
     def feature_analysis(self):
         """Detailed analysis of individual features"""
-        print("\n🎯 INDIVIDUAL FEATURE ANALYSIS")
+        print("\n INDIVIDUAL FEATURE ANALYSIS")
         print("-" * 50)
         
         feature_insights = {}
@@ -246,7 +246,7 @@ class SuperheroEDA:
     
     def create_overview_plots(self):
         """Create overview visualizations"""
-        print("\n🎨 Creating overview plots...")
+        print("\n Creating overview plots...")
         
         fig, axes = plt.subplots(2, 2, figsize=(16, 12))
         fig.suptitle('Superhero Dataset Overview', fontsize=16, fontweight='bold')
@@ -292,7 +292,7 @@ class SuperheroEDA:
     
     def create_correlation_plots(self):
         """Create correlation visualizations"""
-        print("🎨 Creating correlation plots...")
+        print(" Creating correlation plots...")
         
         if self.correlation_matrix is not None:
             fig, axes = plt.subplots(1, 2, figsize=(20, 8))
@@ -316,7 +316,7 @@ class SuperheroEDA:
     
     def create_distribution_plots(self):
         """Create feature distribution plots"""
-        print("🎨 Creating distribution plots...")
+        print(" Creating distribution plots...")
         
         # Numerical features distributions
         numerical_cols = [col for col in self.numerical_features if col in self.data.columns][:8]
@@ -344,10 +344,10 @@ class SuperheroEDA:
     
     def create_target_analysis_plots(self):
         """Create target variable analysis plots"""
-        print("🎨 Creating target analysis plots...")
+        print(" Creating target analysis plots...")
         
         if 'win_prob' not in self.data.columns:
-            print("⚠️ No win_prob column found, skipping target analysis plots")
+            print(" No win_prob column found, skipping target analysis plots")
             return
         
         fig, axes = plt.subplots(2, 2, figsize=(16, 12))
@@ -428,7 +428,7 @@ class SuperheroEDA:
     
     def create_interactive_plots(self):
         """Create interactive Plotly visualizations"""
-        print("🎨 Creating interactive plots...")
+        print(" Creating interactive plots...")
         
         # Interactive correlation heatmap
         if self.correlation_matrix is not None:
@@ -489,11 +489,11 @@ class SuperheroEDA:
                 
                 fig.write_html('outputs/plots/interactive_scatter.html')
             else:
-                print("⚠️ Not enough clean data for interactive scatter plot")
+                print(" Not enough clean data for interactive scatter plot")
     
     def generate_eda_report(self):
         """Generate comprehensive EDA report"""
-        print("📝 Generating EDA report...")
+        print(" Generating EDA report...")
         
         report_content = f"""
 # Superhero Dataset - Exploratory Data Analysis Report
@@ -598,7 +598,7 @@ Total missing values: {self.data.isnull().sum().sum():,}
         with open('outputs/reports/EDA_Summary.txt', 'w', encoding='utf-8') as f:
             f.write(report_content.replace('#', '').replace('*', ''))
         
-        print("✅ EDA report saved to outputs/reports/")
+        print(" EDA report saved to outputs/reports/")
     
     def get_summary_stats(self):
         """Return summary statistics for other modules"""
@@ -614,7 +614,7 @@ Total missing values: {self.data.isnull().sum().sum():,}
 
 if __name__ == "__main__":
     # Test the EDA module
-    print("🧪 Testing SuperheroEDA module...")
+    print(" Testing SuperheroEDA module...")
     
     eda = SuperheroEDA('data.csv')
     eda.load_data()
@@ -634,4 +634,4 @@ if __name__ == "__main__":
     eda.create_interactive_plots()
     eda.generate_eda_report()
     
-    print("✅ EDA module test completed!")
+    print(" EDA module test completed!")
