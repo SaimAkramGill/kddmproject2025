@@ -61,7 +61,7 @@ class SuperheroModeling:
         
     def initialize_models(self):
         """Initialize all models with optimized parameters"""
-        print("🤖 Initializing machine learning models...")
+        print(" Initializing machine learning models...")
         
         self.models = {
             'Random Forest': RandomForestClassifier(
@@ -112,12 +112,12 @@ class SuperheroModeling:
             )
         }
         
-        print(f"✅ Initialized {len(self.models)} models")
+        print(f" Initialized {len(self.models)} models")
         return self.models
     
     def train_models(self, X_train, X_test, y_train, y_test):
         """Train all models and perform cross-validation"""
-        print("\n🏋️ TRAINING MACHINE LEARNING MODELS")
+        print("\n TRAINING MACHINE LEARNING MODELS")
         print("=" * 60)
         
         # Store data
@@ -134,7 +134,7 @@ class SuperheroModeling:
         
         # Train each model
         for name, model in self.models.items():
-            print(f"\n🔄 Training {name}...")
+            print(f"\n Training {name}...")
             
             try:
                 # Cross-validation
@@ -192,13 +192,13 @@ class SuperheroModeling:
         if self.best_model is None:
             raise Exception("No models were successfully trained")
         
-        print(f"\n🏆 Best model: {self.best_model_name} (AUC: {self.best_auc:.4f})")
+        print(f"\n Best model: {self.best_model_name} (AUC: {self.best_auc:.4f})")
         
         return self.results
     
     def hyperparameter_tuning(self, model_name=None):
         """Perform hyperparameter tuning for specific model or best model"""
-        print(f"\n⚙️ HYPERPARAMETER TUNING")
+        print(f"\n HYPERPARAMETER TUNING")
         print("-" * 40)
         
         if model_name is None:
@@ -269,15 +269,15 @@ class SuperheroModeling:
                     self.best_auc = tuned_auc
                     self.best_model = tuned_model
                 
-                print("✅ Model updated with improved parameters")
+                print("Model updated with improved parameters")
             else:
-                print("ℹ️ Original parameters were already optimal")
+                print("Original parameters were already optimal")
         
         return grid_search if model_name in param_grids else None
     
     def evaluate_models(self, results=None):
         """Comprehensive model evaluation and comparison"""
-        print("\n📊 COMPREHENSIVE MODEL EVALUATION")
+        print("\n COMPREHENSIVE MODEL EVALUATION")
         print("=" * 60)
         
         if results is None:
@@ -301,7 +301,7 @@ class SuperheroModeling:
         # Detailed evaluation of best model
         best_result = results[self.best_model_name]
         
-        print(f"\n🏆 BEST MODEL DETAILED EVALUATION: {self.best_model_name}")
+        print(f"\n BEST MODEL DETAILED EVALUATION: {self.best_model_name}")
         print("-" * 50)
         
         # Classification report
@@ -338,7 +338,7 @@ class SuperheroModeling:
         """Generate insights specific to the model type"""
         model_type = type(model).__name__
         
-        print(f"\n🔍 {model_type} Specific Insights:")
+        print(f"\n {model_type} Specific Insights:")
         
         if 'RandomForest' in model_type:
             print(f"  • Number of trees: {model.n_estimators}")
@@ -362,7 +362,7 @@ class SuperheroModeling:
     
     def create_evaluation_plots(self, results=None):
         """Create comprehensive evaluation visualizations"""
-        print("\n🎨 Creating model evaluation plots...")
+        print("\n Creating model evaluation plots...")
         
         if results is None:
             results = self.results
@@ -385,7 +385,7 @@ class SuperheroModeling:
         # 5. Feature Importance
         self._plot_feature_importance()
         
-        print("✅ All evaluation plots created")
+        print(" All evaluation plots created")
     
     def _plot_model_comparison(self, results):
         """Plot model performance comparison"""
@@ -553,7 +553,7 @@ class SuperheroModeling:
     
     def create_performance_comparison_plots(self, results=None):
         """Create detailed performance comparison visualizations"""
-        print("🎨 Creating performance comparison plots...")
+        print(" Creating performance comparison plots...")
         
         if results is None:
             results = self.results
@@ -564,7 +564,7 @@ class SuperheroModeling:
         # Learning curves (if implemented)
         # self._plot_learning_curves()
         
-        print("✅ Performance comparison plots created")
+        print(" Performance comparison plots created")
     
     def _create_interactive_dashboard(self, results):
         """Create interactive Plotly dashboard"""
@@ -625,10 +625,10 @@ class SuperheroModeling:
     def create_feature_importance_plots(self):
         """Create detailed feature importance visualizations"""
         if self.feature_importance is None:
-            print("⚠️ Feature importance not available for this model type")
+            print("Feature importance not available for this model type")
             return
         
-        print("🎨 Creating feature importance plots...")
+        print(" Creating feature importance plots...")
         
         # 1. Top features bar plot
         plt.figure(figsize=(14, 10))
@@ -728,14 +728,14 @@ class SuperheroModeling:
     
     def save_model(self, model=None):
         """Save the best model and related objects"""
-        print("\n💾 Saving model and artifacts...")
+        print("\n Saving model and artifacts...")
         
         if model is None:
             model = self.best_model
         
         # Ensure we have a valid model
         if model is None:
-            print("❌ No model available to save")
+            print(" No model available to save")
             return
         
         # Create models directory
@@ -746,16 +746,16 @@ class SuperheroModeling:
         try:
             with open(model_filename, 'wb') as f:
                 pickle.dump(model, f)
-            print(f"✅ Model saved: {model_filename}")
+            print(f" Model saved: {model_filename}")
         except Exception as e:
-            print(f"⚠️ Error saving model: {str(e)}")
+            print(f" Error saving model: {str(e)}")
             return
         
         # Get model parameters safely
         try:
             model_parameters = model.get_params() if hasattr(model, 'get_params') else {}
         except Exception as e:
-            print(f"⚠️ Could not get model parameters: {str(e)}")
+            print(f" Could not get model parameters: {str(e)}")
             model_parameters = {}
         
         # Save model metadata
@@ -775,17 +775,17 @@ class SuperheroModeling:
         try:
             with open('outputs/models/model_metadata.json', 'w', encoding='utf-8') as f:
                 json.dump(model_metadata, f, indent=2)
-            print("✅ Model metadata saved")
+            print(" Model metadata saved")
         except Exception as e:
-            print(f"⚠️ Error saving metadata: {str(e)}")
+            print(f" Error saving metadata: {str(e)}")
         
         # Save feature importance
         if self.feature_importance is not None:
             try:
                 self.feature_importance.to_csv('outputs/models/feature_importance.csv', index=False)
-                print("✅ Feature importance saved")
+                print("Feature importance saved")
             except Exception as e:
-                print(f"⚠️ Error saving feature importance: {str(e)}")
+                print(f" Error saving feature importance: {str(e)}")
         
         # Save results summary
         try:
@@ -797,15 +797,15 @@ class SuperheroModeling:
                 'Test_Accuracy': [float(self.results[name]['test_accuracy']) for name in self.results.keys()]
             })
             results_summary.to_csv('outputs/models/model_results_summary.csv', index=False)
-            print("✅ Results summary saved")
+            print(" Results summary saved")
         except Exception as e:
-            print(f"⚠️ Error saving results summary: {str(e)}")
+            print(f" Error saving results summary: {str(e)}")
         
         return True
     
     def generate_modeling_report(self, results=None, model_metrics=None):
         """Generate comprehensive modeling report"""
-        print("\n📝 Generating modeling report...")
+        print("\n Generating modeling report...")
         
         if results is None:
             results = self.results
@@ -968,11 +968,11 @@ This report presents the results of comprehensive machine learning modeling for 
         with open('outputs/reports/modeling_summary.json', 'w', encoding='utf-8') as f:
             json.dump(modeling_summary, f, indent=2)
         
-        print("✅ Modeling report saved to outputs/reports/")
+        print(" Modeling report saved to outputs/reports/")
 
 if __name__ == "__main__":
     # Test the modeling module
-    print("🧪 Testing SuperheroModeling module...")
+    print(" Testing SuperheroModeling module...")
     
     try:
         # Load preprocessed data
@@ -998,11 +998,11 @@ if __name__ == "__main__":
         modeler.save_model()
         modeler.generate_modeling_report()
         
-        print("✅ Modeling module test completed!")
-        print(f"🏆 Best model: {modeler.best_model_name} (AUC: {modeler.best_auc:.4f})")
+        print(" Modeling module test completed!")
+        print(f" Best model: {modeler.best_model_name} (AUC: {modeler.best_auc:.4f})")
         
     except FileNotFoundError as e:
-        print(f"❌ Required files not found: {e}")
+        print(f" Required files not found: {e}")
         print("Please run preprocessing module first.")
     except Exception as e:
-        print(f"❌ Error: {str(e)}")
+        print(f" Error: {str(e)}")
