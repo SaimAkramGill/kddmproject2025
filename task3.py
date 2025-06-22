@@ -58,7 +58,7 @@ class Task3Analyzer:
         
     def load_task3_data(self):
         """Load Task 3 perfect villain data"""
-        print("\n🐧 LOADING TASK 3 DATA")
+        print("\n LOADING TASK 3 DATA")
         print("-" * 40)
         
         try:
@@ -70,14 +70,14 @@ class Task3Analyzer:
             win_prob_col = [col for col in self.villain_data.columns if 'win_prob' in col][0]
             actual_win_prob = self.perfect_villain[win_prob_col]
             
-            print(f"✅ Loaded perfect villain data")
-            print(f"🐧 Villain: {self.perfect_villain['name']}")
-            print(f"🎯 Win Probability: {actual_win_prob}")
-            print(f"⚡ Role: {self.perfect_villain['role']}")
+            print(f" Loaded perfect villain data")
+            print(f" Villain: {self.perfect_villain['name']}")
+            print(f" Win Probability: {actual_win_prob}")
+            print(f" Role: {self.perfect_villain['role']}")
             
             # Display key stats
             key_stats = ['power_level', 'speed', 'battle_iq', 'intelligence', 'ranking', 'training_time']
-            print(f"\n📊 Key Statistics:")
+            print(f"\n Key Statistics:")
             for stat in key_stats:
                 if stat in self.perfect_villain.index:
                     print(f"  {stat}: {self.perfect_villain[stat]}")
@@ -91,7 +91,7 @@ class Task3Analyzer:
     
     def statistical_analysis(self):
         """Perform comprehensive statistical analysis of the perfect villain"""
-        print("\n📈 STATISTICAL ANALYSIS OF PERFECT VILLAIN")
+        print("\n STATISTICAL ANALYSIS OF PERFECT VILLAIN")
         print("-" * 50)
         
         # Get numerical features for comparison
@@ -221,11 +221,11 @@ class Task3Analyzer:
     
     def feature_dominance_analysis(self):
         """Analyze which features make the villain dominant"""
-        print("\n🏆 FEATURE DOMINANCE ANALYSIS")
+        print("\n FEATURE DOMINANCE ANALYSIS")
         print("-" * 40)
         
         if self.statistical_analysis_results is None:
-            print("❌ Statistical analysis not completed. Run statistical_analysis() first.")
+            print(" Statistical analysis not completed. Run statistical_analysis() first.")
             return None
         
         # Get feature importance from the model if available
@@ -296,20 +296,20 @@ class Task3Analyzer:
         dominance_analysis['winning_formula'] = winning_formula_features
         
         # Display results
-        print("🎯 TOP PERCENTILE FEATURES:")
+        print(" TOP PERCENTILE FEATURES:")
         for item in sorted(dominance_analysis['top_percentile_features'], 
                          key=lambda x: x['percentile'], reverse=True):
             print(f"  {item['feature']:20}: {item['percentile']:6.1f}th percentile (Z={item['z_score']:+.2f})")
         
         if dominance_analysis['model_important_features']:
-            print(f"\n🧠 MODEL-IMPORTANT FEATURES WHERE VILLAIN EXCELS:")
+            print(f"\n MODEL-IMPORTANT FEATURES WHERE VILLAIN EXCELS:")
             for item in sorted(dominance_analysis['model_important_features'], 
                              key=lambda x: x['dominance_score'], reverse=True)[:5]:
                 print(f"  {item['feature']:20}: Importance={item['model_importance']:.3f}, "
                       f"Percentile={item['villain_percentile']:6.1f}%, "
                       f"Score={item['dominance_score']:.3f}")
         
-        print(f"\n🏆 WINNING FORMULA:")
+        print(f"\n WINNING FORMULA:")
         if winning_formula_features:
             for i, item in enumerate(winning_formula_features, 1):
                 print(f"  {i}. {item['feature']}: {item['why_important']}")
@@ -321,7 +321,7 @@ class Task3Analyzer:
     
     def comparative_analysis(self):
         """Compare villain against different character groups"""
-        print("\n⚖️ COMPARATIVE ANALYSIS")
+        print("\n COMPARATIVE ANALYSIS")
         print("-" * 40)
         
         # Group characters by performance
@@ -334,7 +334,7 @@ class Task3Analyzer:
         heroes = self.training_data[self.training_data['role'].isin(['Hero', 'H3ro', 'HerO'])]
         villains = self.training_data[self.training_data['role'].isin(['Villain', 'VIllain', 'VillaIn'])]
         
-        print(f"📊 Dataset Composition:")
+        print(f" Dataset Composition:")
         print(f"  High Performers (≥0.8): {len(high_performers)} characters")
         print(f"  Medium Performers (0.4-0.8): {len(medium_performers)} characters")
         print(f"  Low Performers (<0.4): {len(low_performers)} characters")
@@ -418,17 +418,17 @@ class Task3Analyzer:
                 }
         
         # Display comparison results
-        print(f"\n🆚 COMPARISON AGAINST HIGH PERFORMERS:")
+        print(f"\n COMPARISON AGAINST HIGH PERFORMERS:")
         if 'High Performers' in comparison_results['performance_groups']:
             for feature, data in comparison_results['performance_groups']['High Performers'].items():
                 print(f"  {feature:15}: {data['villain_percentile_in_group']:6.1f}th percentile among high performers")
         
-        print(f"\n🦹 COMPARISON AGAINST OTHER VILLAINS:")
+        print(f"\n COMPARISON AGAINST OTHER VILLAINS:")
         if 'Villains' in comparison_results['role_groups']:
             for feature, data in comparison_results['role_groups']['Villains'].items():
                 print(f"  {feature:15}: {data['villain_percentile_in_role']:6.1f}th percentile among villains")
         
-        print(f"\n🌟 OVERALL DATASET RANKING:")
+        print(f"\n OVERALL DATASET RANKING:")
         for feature, data in comparison_results['overall_ranking'].items():
             print(f"  {feature:15}: Rank #{data['rank_position']:3d} out of {data['total_characters']:4d} characters ({data['percentile']:5.1f}th percentile)")
         
@@ -437,7 +437,7 @@ class Task3Analyzer:
     
     def create_statistical_plots(self):
         """Create statistical analysis visualizations"""
-        print("\n🎨 Creating statistical analysis plots...")
+        print("\n Creating statistical analysis plots...")
         
         if self.statistical_analysis_results is None:
             print("❌ Statistical analysis not completed. Run statistical_analysis() first.")
@@ -542,10 +542,10 @@ class Task3Analyzer:
     
     def create_comparison_plots(self):
         """Create comparative analysis visualizations"""
-        print("🎨 Creating comparison plots...")
+        print(" Creating comparison plots...")
         
         if self.comparative_analysis_results is None:
-            print("❌ Comparative analysis not completed. Run comparative_analysis() first.")
+            print(" Comparative analysis not completed. Run comparative_analysis() first.")
             return
         
         fig, axes = plt.subplots(2, 2, figsize=(16, 12))
@@ -660,7 +660,7 @@ class Task3Analyzer:
     
     def create_radar_chart(self):
         """Create radar chart comparing villain to different groups"""
-        print("🎨 Creating radar chart...")
+        print(" Creating radar chart...")
         
         # Key features for radar chart
         radar_features = ['power_level', 'speed', 'battle_iq', 'intelligence', 'training_time']
@@ -668,7 +668,7 @@ class Task3Analyzer:
                             f in self.training_data.columns]
         
         if len(available_features) < 3:
-            print("⚠️ Not enough features available for radar chart")
+            print(" Not enough features available for radar chart")
             return
         
         # Calculate normalized values (0-1 scale)
@@ -740,7 +740,7 @@ class Task3Analyzer:
     
     def create_percentile_analysis(self):
         """Create detailed percentile analysis visualization"""
-        print("🎨 Creating percentile analysis...")
+        print(" Creating percentile analysis...")
         
         if self.statistical_analysis_results is None:
             return
@@ -797,7 +797,7 @@ class Task3Analyzer:
     
     def save_analysis_results(self):
         """Save all analysis results to files"""
-        print("\n💾 Saving Task 3 analysis results...")
+        print("\n Saving Task 3 analysis results...")
         
         # Create directories
         os.makedirs('outputs/reports', exist_ok=True)
@@ -840,11 +840,11 @@ class Task3Analyzer:
             with open('outputs/predictions/task3_comparative_analysis.json', 'w', encoding='utf-8') as f:
                 json.dump(clean_comparative, f, indent=2)
         
-        print("✅ Analysis results saved")
+        print(" Analysis results saved")
     
     def generate_task3_report(self, statistical_analysis=None, feature_analysis=None):
         """Generate comprehensive Task 3 report"""
-        print("\n📝 Generating Task 3 report...")
+        print("\n Generating Task 3 report...")
         
         if statistical_analysis is None:
             statistical_analysis = self.statistical_analysis_results
@@ -1050,15 +1050,15 @@ This analysis provides insights for character development and competitive strate
         with open('outputs/reports/task3_summary.json', 'w', encoding='utf-8') as f:
             json.dump(task3_summary, f, indent=2)
         
-        print("✅ Task 3 report saved to outputs/reports/")
+        print(" Task 3 report saved to outputs/reports/")
 
 if __name__ == "__main__":
     # Test the Task 3 module
-    print("🧪 Testing Task3Analyzer module...")
+    print(" Testing Task3Analyzer module...")
     
     try:
-        print("ℹ️ Task 3 module ready for integration with main pipeline")
+        print(" Task 3 module ready for integration with main pipeline")
         print("Run main.py to execute complete Task 3 analysis")
         
     except Exception as e:
-        print(f"❌ Error: {str(e)}")
+        print(f" Error: {str(e)}")

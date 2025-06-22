@@ -64,35 +64,35 @@ class Task2Predictor:
                 self.scaler = preprocessing_objects.get('scaler', None)
                 self.imputers = preprocessing_objects.get('imputers', {})
         except FileNotFoundError:
-            print("⚠️ Preprocessing objects not found. Creating new ones...")
+            print(" Preprocessing objects not found. Creating new ones...")
             self.label_encoders = {}
             self.scaler = None
             self.imputers = {}
     
     def load_task2_data(self):
         """Load Task 2 character and match data"""
-        print("\n📋 LOADING TASK 2 DATA")
+        print("\n LOADING TASK 2 DATA")
         print("-" * 40)
         
         try:
             # Load characters data
             self.characters_data = pd.read_csv('Task2_superheroes_villains.csv')
-            print(f"✅ Loaded {len(self.characters_data)} characters")
+            print(f" Loaded {len(self.characters_data)} characters")
             
             # Load matches data
             self.matches_data = pd.read_csv('Task2_matches.csv')
-            print(f"✅ Loaded {len(self.matches_data)} fight matches")
+            print(f" Loaded {len(self.matches_data)} fight matches")
             
             # Display character info
-            print("\n🦸 Characters to predict:")
+            print("\n Characters to predict:")
             for i, char in self.characters_data.iterrows():
-                char_type = "🦸 Hero" if char['role'] in ['Hero', 'H3ro', 'HerO'] else "🦹 Villain"
+                char_type = " Hero" if char['role'] in ['Hero', 'H3ro', 'HerO'] else "🦹 Villain"
                 print(f"  {char_type} {char['name']}")
                 print(f"    Power: {char.get('power_level', 'N/A')}, Speed: {char.get('speed', 'N/A')}, "
                       f"Battle IQ: {char.get('battle_iq', 'N/A')}")
             
             # Display fights
-            print("\n⚔️ Scheduled fights:")
+            print("\n Scheduled fights:")
             for i, fight in self.matches_data.iterrows():
                 print(f"  Fight {i+1}: {fight['first']} vs {fight['second']}")
             
@@ -137,7 +137,7 @@ class Task2Predictor:
     
     def preprocess_task2_data(self):
         """Preprocess Task 2 data to match training format exactly"""
-        print("\n⚙️ PREPROCESSING TASK 2 DATA")
+        print("\n PREPROCESSING TASK 2 DATA")
         print("-" * 40)
         
         # Make a copy for processing
@@ -182,10 +182,10 @@ class Task2Predictor:
                 else:
                     # Create simple default encoding for missing categorical features
                     processed_data[encoded_col_name] = 0  # Default value
-                    print(f"⚠️ No encoder for '{col}', using default encoding")
+                    print(f" No encoder for '{col}', using default encoding")
             else:
                 # This categorical feature was not used in training, skip it
-                print(f"🔄 Skipping '{col}' - not used in training model")
+                print(f" Skipping '{col}' - not used in training model")
         
         # 4. Drop ALL original categorical columns (whether processed or not)
         processed_data = processed_data.drop(columns=categorical_cols, errors='ignore')
@@ -209,7 +209,7 @@ class Task2Predictor:
                 else:
                     final_data[feature] = 0.0  # Default for other features
                 
-                print(f"⚠️ Added missing feature '{feature}' with default value")
+                print(f" Added missing feature '{feature}' with default value")
         
         # 6. Ensure exact feature order matches training
         final_data = final_data[self.feature_names]
@@ -223,7 +223,7 @@ class Task2Predictor:
                     index=final_data.index
                 )
             except Exception as e:
-                print(f"⚠️ Imputer error: {e}. Using median imputation.")
+                print(f" Imputer error: {e}. Using median imputation.")
                 final_data = final_data.fillna(final_data.median())
         else:
             # Use simple median imputation if imputer not available
@@ -239,18 +239,18 @@ class Task2Predictor:
                     index=final_data.index
                 )
             except Exception as e:
-                print(f"⚠️ Scaler error: {e}. Skipping scaling.")
+                print(f" Scaler error: {e}. Skipping scaling.")
         
-        print(f"✅ Preprocessed {len(final_data)} characters")
-        print(f"📊 Feature matrix shape: {final_data.shape}")
-        print(f"🎯 Feature names match training: {list(final_data.columns) == self.feature_names}")
-        print(f"📋 Features created: {len([f for f in self.feature_names if f in processed_data.columns])} / {len(self.feature_names)}")
+        print(f" Preprocessed {len(final_data)} characters")
+        print(f" Feature matrix shape: {final_data.shape}")
+        print(f" Feature names match training: {list(final_data.columns) == self.feature_names}")
+        print(f" Features created: {len([f for f in self.feature_names if f in processed_data.columns])} / {len(self.feature_names)}")
         
         return final_data
     
     def predict_characters(self):
         """Predict winning probabilities for all characters"""
-        print("\n🎯 PREDICTING CHARACTER WINNING PROBABILITIES")
+        print("\n PREDICTING CHARACTER WINNING PROBABILITIES")
         print("-" * 50)
         
         # Preprocess data
@@ -272,7 +272,7 @@ class Task2Predictor:
         self.character_predictions = results
         
         # Display results
-        print("📊 CHARACTER PREDICTIONS:")
+        print(" CHARACTER PREDICTIONS:")
         print("=" * 60)
         
         for i, char in results.iterrows():
@@ -281,16 +281,16 @@ class Task2Predictor:
             confidence = char['confidence_level']
             
             print(f"{char_type} {char['name']:15}")
-            print(f"  📈 Win Probability: {char['predicted_win_probability']:.3f} ({char['predicted_win_probability']*100:.1f}%)")
-            print(f"  🎯 Predicted Outcome: {outcome}")
-            print(f"  🎚️ Confidence: {confidence}")
+            print(f"   Win Probability: {char['predicted_win_probability']:.3f} ({char['predicted_win_probability']*100:.1f}%)")
+            print(f"   Predicted Outcome: {outcome}")
+            print(f"   Confidence: {confidence}")
             print()
         
         # Summary statistics
         heroes = results[results['role'].isin(['Hero', 'H3ro', 'HerO'])]
         villains = results[results['role'].isin(['Villain', 'VIllain', 'VillaIn'])]
         
-        print("📋 SUMMARY STATISTICS:")
+        print(" SUMMARY STATISTICS:")
         print(f"  Heroes average win probability: {heroes['predicted_win_probability'].mean():.3f}")
         print(f"  Villains average win probability: {villains['predicted_win_probability'].mean():.3f}")
         print(f"  Highest win probability: {results.loc[results['predicted_win_probability'].idxmax(), 'name']} ({results['predicted_win_probability'].max():.3f})")
@@ -300,11 +300,11 @@ class Task2Predictor:
     
     def predict_fights(self):
         """Predict outcomes for scheduled fights"""
-        print("\n⚔️ PREDICTING FIGHT OUTCOMES")
+        print("\n PREDICTING FIGHT OUTCOMES")
         print("-" * 40)
         
         if self.character_predictions is None:
-            print("❌ Character predictions not available. Run predict_characters() first.")
+            print(" Character predictions not available. Run predict_characters() first.")
             return None
         
         # Create fight predictions
@@ -319,7 +319,7 @@ class Task2Predictor:
             fighter2_data = self.character_predictions[self.character_predictions['name'] == fighter2_name]
             
             if len(fighter1_data) == 0 or len(fighter2_data) == 0:
-                print(f"⚠️ Fighter not found for: {fighter1_name} vs {fighter2_name}")
+                print(f" Fighter not found for: {fighter1_name} vs {fighter2_name}")
                 continue
             
             f1_prob = fighter1_data['predicted_win_probability'].iloc[0]
@@ -366,11 +366,11 @@ class Task2Predictor:
             fight_results.append(fight_result)
             
             # Display result
-            print(f"🥊 FIGHT {i+1}: {fighter1_name} vs {fighter2_name}")
+            print(f" FIGHT {i+1}: {fighter1_name} vs {fighter2_name}")
             print(f"   {fighter1_name}: {f1_prob:.3f} ({f1_prob*100:.1f}%)")
             print(f"   {fighter2_name}: {f2_prob:.3f} ({f2_prob*100:.1f}%)")
-            print(f"   🏆 WINNER: {winner} ({fight_type})")
-            print(f"   📊 Victory Margin: {margin:.3f}")
+            print(f"    WINNER: {winner} ({fight_type})")
+            print(f"    Victory Margin: {margin:.3f}")
             print()
         
         # Store fight predictions
@@ -380,7 +380,7 @@ class Task2Predictor:
     
     def analyze_character_strengths(self):
         """Analyze what makes each character strong/weak"""
-        print("\n🔍 CHARACTER STRENGTH ANALYSIS")
+        print("\n CHARACTER STRENGTH ANALYSIS")
         print("-" * 40)
         
         if self.character_predictions is None:
@@ -400,7 +400,7 @@ class Task2Predictor:
         
         # Analyze each character
         for i, char in self.character_predictions.iterrows():
-            print(f"\n📊 {char['name']} Analysis:")
+            print(f"\n {char['name']} Analysis:")
             print(f"   Win Probability: {char['predicted_win_probability']:.3f}")
             
             # Get character's feature values (before preprocessing)
@@ -419,10 +419,10 @@ class Task2Predictor:
     
     def create_prediction_plots(self):
         """Create visualizations for character predictions"""
-        print("\n🎨 Creating prediction visualizations...")
+        print("\n Creating prediction visualizations...")
         
         if self.character_predictions is None:
-            print("❌ No predictions available. Run predict_characters() first.")
+            print(" No predictions available. Run predict_characters() first.")
             return
         
         # Create plots directory
@@ -489,10 +489,10 @@ class Task2Predictor:
     
     def create_fight_analysis_plots(self):
         """Create fight analysis visualizations"""
-        print("🎨 Creating fight analysis plots...")
+        print(" Creating fight analysis plots...")
         
         if self.fight_predictions is None:
-            print("❌ No fight predictions available. Run predict_fights() first.")
+            print(" No fight predictions available. Run predict_fights() first.")
             return
         
         fig, axes = plt.subplots(2, 2, figsize=(16, 12))
@@ -550,7 +550,7 @@ class Task2Predictor:
     
     def create_character_comparison_plots(self):
         """Create detailed character comparison plots"""
-        print("🎨 Creating character comparison plots...")
+        print(" Creating character comparison plots...")
         
         # Character feature comparison
         fig, axes = plt.subplots(2, 2, figsize=(16, 12))
@@ -658,7 +658,7 @@ class Task2Predictor:
     
     def create_interactive_dashboard(self):
         """Create interactive Task 2 dashboard"""
-        print("🎨 Creating interactive Task 2 dashboard...")
+        print(" Creating interactive Task 2 dashboard...")
         
         # Create interactive dashboard
         fig = make_subplots(
@@ -728,7 +728,7 @@ class Task2Predictor:
     
     def save_predictions(self, character_predictions=None, fight_predictions=None):
         """Save prediction results to files"""
-        print("\n💾 Saving Task 2 predictions...")
+        print("\n Saving Task 2 predictions...")
         
         # Create predictions directory
         os.makedirs('outputs/predictions', exist_ok=True)
@@ -739,7 +739,7 @@ class Task2Predictor:
         
         if character_predictions is not None:
             character_predictions.to_csv('outputs/predictions/task2_character_predictions.csv', index=False)
-            print("✅ Character predictions saved")
+            print(" Character predictions saved")
         
         # Save fight predictions
         if fight_predictions is None:
@@ -747,13 +747,13 @@ class Task2Predictor:
         
         if fight_predictions is not None:
             fight_predictions.to_csv('outputs/predictions/task2_fight_predictions.csv', index=False)
-            print("✅ Fight predictions saved")
+            print(" Fight predictions saved")
         
         return True
     
     def generate_task2_report(self, character_predictions=None, fight_predictions=None):
         """Generate comprehensive Task 2 report"""
-        print("\n📝 Generating Task 2 report...")
+        print("\n Generating Task 2 report...")
         
         if character_predictions is None:
             character_predictions = self.character_predictions
@@ -818,7 +818,7 @@ This report presents predictions for {len(character_predictions)} superhero/vill
 #### Fight {fight['fight_number']}: {fight['fighter1']} vs {fight['fighter2']}
 - **{fight['fighter1']}**: {fight['fighter1_prob']:.3f} win probability
 - **{fight['fighter2']}**: {fight['fighter2_prob']:.3f} win probability
-- **🏆 PREDICTED WINNER**: {fight['winner']}
+- ** PREDICTED WINNER**: {fight['winner']}
 - **Victory Margin**: {fight['margin']:.3f}
 - **Fight Type**: {fight['fight_type']}
 """
@@ -903,7 +903,6 @@ This report presents predictions for {len(character_predictions)} superhero/vill
 3. **Training Focus**: Improve features with highest model importance
 
 ---
-*Report generated by Task 2 Prediction Module*
 """
         
         # Save report
@@ -930,16 +929,16 @@ This report presents predictions for {len(character_predictions)} superhero/vill
         with open('outputs/reports/task2_summary.json', 'w', encoding='utf-8') as f:
             json.dump(task2_summary, f, indent=2)
         
-        print("✅ Task 2 report saved to outputs/reports/")
+        print(" Task 2 report saved to outputs/reports/")
 
 if __name__ == "__main__":
     # Test the Task 2 module
-    print("🧪 Testing Task2Predictor module...")
+    print(" Testing Task2Predictor module...")
     
     try:
         # This would normally be called from main.py with a trained modeler
-        print("ℹ️ Task 2 module ready for integration with main pipeline")
+        print(" Task 2 module ready for integration with main pipeline")
         print("Run main.py to execute complete Task 2 analysis")
         
     except Exception as e:
-        print(f"❌ Error: {str(e)}")
+        print(f" Error: {str(e)}")

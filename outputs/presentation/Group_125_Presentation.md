@@ -132,7 +132,7 @@
 ### Questions & Discussion
 
 **Contact Information:**
-- Project Repository: [GitHub Link]
+- Project Repository: [\[GitHub Link\]](https://github.com/SaimAkramGill/kddmproject2025.git)
 - Email: [muhammad.akram@edu.uni-graz.at]
 
 **Key Takeaways:**
