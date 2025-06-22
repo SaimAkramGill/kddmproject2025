@@ -1,0 +1,4 @@
+fight_number,fighter1,fighter2,fighter1_prob,fighter2_prob,winner,winner_prob,loser,loser_prob,margin,fight_type
+1,Endeavor,Overhaul,0.54671157556365,0.7553257217045801,Overhaul,0.7553257217045801,Endeavor,0.54671157556365,0.2086141461409301,Clear Victory
+2,Captain Britain,Madame Hydra,0.6568404588824727,0.7411381274166473,Madame Hydra,0.7411381274166473,Captain Britain,0.6568404588824727,0.08429766853417464,Close Fight
+3,Golden Glider,King Shark,0.7429063317314047,0.6520702597127831,Golden Glider,0.7429063317314047,King Shark,0.6520702597127831,0.09083607201862165,Close Fight

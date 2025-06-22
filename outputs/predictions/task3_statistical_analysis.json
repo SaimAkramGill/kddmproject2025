@@ -1,0 +1,140 @@
+{
+  "villain_name": "Penguin",
+  "feature_analysis": {
+    "power_level": {
+      "villain_value": 16015.0,
+      "dataset_mean": 8860.187308085977,
+      "dataset_median": 8444.0,
+      "dataset_std": 4950.509092540943,
+      "dataset_min": 1002.0,
+      "dataset_max": 23533.0,
+      "percentile": 91.40225179119754,
+      "z_score": 1.4452680639844415,
+      "is_extreme": false,
+      "interpretation": "VERY HIGH - Raw combat power"
+    },
+    "weight": {
+      "villain_value": 83.0,
+      "dataset_mean": 170.19401444788443,
+      "dataset_median": 90.0,
+      "dataset_std": 193.37075660396712,
+      "dataset_min": 50.0,
+      "dataset_max": 700.0,
+      "percentile": 42.00206398348813,
+      "z_score": -0.45091623976246875,
+      "is_extreme": false,
+      "interpretation": "AVERAGE - Physical mass"
+    },
+    "height": {
+      "villain_value": 178.0,
+      "dataset_mean": 283.1837732160313,
+      "dataset_median": 184.0,
+      "dataset_std": 234.1158105931804,
+      "dataset_min": 100.0,
+      "dataset_max": 900.0,
+      "percentile": 44.28152492668622,
+      "z_score": -0.4492809475341568,
+      "is_extreme": false,
+      "interpretation": "AVERAGE - Physical stature"
+    },
+    "age": {
+      "villain_value": 58.0,
+      "dataset_mean": 85.87162162162163,
+      "dataset_median": 84.5,
+      "dataset_std": 36.26563198752724,
+      "dataset_min": 20.0,
+      "dataset_max": 149.0,
+      "percentile": 27.027027027027028,
+      "z_score": -0.7685409048216078,
+      "is_extreme": false,
+      "interpretation": "LOW - Experience through years lived"
+    },
+    "gender": {
+      "villain_value": 2.0,
+      "dataset_mean": 1.1271676300578035,
+      "dataset_median": 1.0,
+      "dataset_std": 0.8179210609306603,
+      "dataset_min": 0.0,
+      "dataset_max": 2.0,
+      "percentile": 100.0,
+      "z_score": 1.0671352183413105,
+      "is_extreme": false,
+      "interpretation": "EXCEPTIONAL - gender"
+    },
+    "speed": {
+      "villain_value": 1732.0,
+      "dataset_mean": 1546.882585751979,
+      "dataset_median": 1220.5,
+      "dataset_std": 912.1560349888723,
+      "dataset_min": 677.0,
+      "dataset_max": 5116.0,
+      "percentile": 72.69129287598945,
+      "z_score": 0.20294489884099642,
+      "is_extreme": false,
+      "interpretation": "HIGH - Movement and reaction speed"
+    },
+    "battle_iq": {
+      "villain_value": 988.0,
+      "dataset_mean": 894.9777992277992,
+      "dataset_median": 973.0,
+      "dataset_std": 350.4623343753623,
+      "dataset_min": 59.0,
+      "dataset_max": 1320.0,
+      "percentile": 55.21235521235521,
+      "z_score": 0.26542709914318346,
+      "is_extreme": false,
+      "interpretation": "AVERAGE - Combat tactical intelligence"
+    },
+    "ranking": {
+      "villain_value": 1218.0,
+      "dataset_mean": 2548.5,
+      "dataset_median": 2572.0,
+      "dataset_std": 1422.030654935005,
+      "dataset_min": 26.0,
+      "dataset_max": 4995.0,
+      "percentile": 23.455598455598455,
+      "z_score": -0.935633838400489,
+      "is_extreme": false,
+      "interpretation": "LOW - Popularity/effectiveness ranking (lower is better)"
+    },
+    "intelligence": {
+      "villain_value": 915.0,
+      "dataset_mean": 835.1471502590673,
+      "dataset_median": 900.0,
+      "dataset_std": 306.7759517113521,
+      "dataset_min": 66.0,
+      "dataset_max": 1200.0,
+      "percentile": 55.336787564766844,
+      "z_score": 0.2602969668759006,
+      "is_extreme": false,
+      "interpretation": "AVERAGE - General intellectual capacity"
+    },
+    "training_time": {
+      "villain_value": 9496.0,
+      "dataset_mean": 137787.93227513228,
+      "dataset_median": 4987.0,
+      "dataset_std": 1304711.925627197,
+      "dataset_min": 12.0,
+      "dataset_max": 19178000.0,
+      "percentile": 92.27513227513228,
+      "z_score": -0.09832970003202829,
+      "is_extreme": false,
+      "interpretation": "VERY HIGH - Time invested in training and preparation"
+    },
+    "secret_code": {
+      "villain_value": 11010.0,
+      "dataset_mean": 10328.047473200613,
+      "dataset_median": 10011.0,
+      "dataset_std": 457.8719205144593,
+      "dataset_min": 10000.0,
+      "dataset_max": 11111.0,
+      "percentile": 91.27105666156203,
+      "z_score": 1.4893958250009156,
+      "is_extreme": false,
+      "interpretation": "VERY HIGH - secret_code"
+    }
+  },
+  "extreme_features": [],
+  "percentile_analysis": {},
+  "z_score_analysis": {}
+}

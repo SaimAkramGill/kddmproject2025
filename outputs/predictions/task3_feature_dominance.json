@@ -1,0 +1,89 @@
+{
+  "top_percentile_features": [
+    {
+      "feature": "power_level",
+      "percentile": 91.40225179119754,
+      "z_score": 1.4452680639844415,
+      "value": 16015.0
+    },
+    {
+      "feature": "gender",
+      "percentile": 100.0,
+      "z_score": 1.0671352183413105,
+      "value": 2.0
+    },
+    {
+      "feature": "training_time",
+      "percentile": 92.27513227513228,
+      "z_score": -0.09832970003202829,
+      "value": 9496.0
+    },
+    {
+      "feature": "secret_code",
+      "percentile": 91.27105666156203,
+      "z_score": 1.4893958250009156,
+      "value": 11010.0
+    }
+  ],
+  "model_important_features": [
+    {
+      "feature": "power_level",
+      "model_importance": 0.0602821626023375,
+      "villain_percentile": 91.40225179119754,
+      "villain_z_score": 1.4452680639844415,
+      "dominance_score": 0.055099254046967645
+    },
+    {
+      "feature": "gender",
+      "model_importance": 0.059854570627536616,
+      "villain_percentile": 100.0,
+      "villain_z_score": 1.0671352183413105,
+      "dominance_score": 0.059854570627536616
+    },
+    {
+      "feature": "secret_code",
+      "model_importance": 0.03984340190708101,
+      "villain_percentile": 91.27105666156203,
+      "villain_z_score": 1.4893958250009156,
+      "dominance_score": 0.036365493930505796
+    },
+    {
+      "feature": "age",
+      "model_importance": 0.03593573954349313,
+      "villain_percentile": 27.027027027027028,
+      "villain_z_score": -0.7685409048216078,
+      "dominance_score": 0.009712362038781926
+    },
+    {
+      "feature": "intelligence",
+      "model_importance": 0.019771911748627708,
+      "villain_percentile": 55.336787564766844,
+      "villain_z_score": 0.2602969668759006,
+      "dominance_score": 0.010941140801831293
+    }
+  ],
+  "combined_dominance_score": {
+    "power_level": 0.055099254046967645,
+    "gender": 0.059854570627536616,
+    "secret_code": 0.036365493930505796,
+    "age": 0.009712362038781926,
+    "intelligence": 0.010941140801831293
+  },
+  "winning_formula": [
+    {
+      "feature": "gender",
+      "why_important": "High model importance (0.060) + Villain excellence (100.0th percentile)",
+      "contribution": 0.059854570627536616
+    },
+    {
+      "feature": "power_level",
+      "why_important": "High model importance (0.060) + Villain excellence (91.4th percentile)",
+      "contribution": 0.055099254046967645
+    },
+    {
+      "feature": "secret_code",
+      "why_important": "High model importance (0.040) + Villain excellence (91.3th percentile)",
+      "contribution": 0.036365493930505796
+    }
+  ]
+}

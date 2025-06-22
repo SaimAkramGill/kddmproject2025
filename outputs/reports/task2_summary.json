@@ -1,0 +1,16 @@
+{
+  "total_characters": 6,
+  "heroes_count": 2,
+  "villains_count": 3,
+  "heroes_avg_probability": 0.6998733953069387,
+  "villains_avg_probability": 0.7161780362780035,
+  "strongest_character": "Overhaul",
+  "strongest_probability": 0.7553257217045801,
+  "total_fights": 3,
+  "fight_winners": [
+    "Overhaul",
+    "Madame Hydra",
+    "Golden Glider"
+  ],
+  "model_used": "AdaBoost"
+}

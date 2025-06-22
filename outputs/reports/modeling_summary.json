@@ -1,0 +1,44 @@
+{
+  "best_model": "AdaBoost",
+  "best_auc": 0.9541847041847042,
+  "models_evaluated": 6,
+  "top_features": [
+    "skin_type_encoded",
+    "special_attack_encoded",
+    "training_efficiency",
+    "power_level",
+    "gender"
+  ],
+  "performance_metrics": {
+    "Random Forest": {
+      "test_auc": 0.8917748917748918,
+      "test_f1": 0.9174311926605505,
+      "test_accuracy": 0.8701923076923077
+    },
+    "Gradient Boosting": {
+      "test_auc": 0.9191919191919191,
+      "test_f1": 0.9135802469135802,
+      "test_accuracy": 0.8653846153846154
+    },
+    "AdaBoost": {
+      "test_auc": 0.9541847041847042,
+      "test_f1": 0.9367088607594937,
+      "test_accuracy": 0.9038461538461539
+    },
+    "Logistic Regression": {
+      "test_auc": 0.8015873015873016,
+      "test_f1": 0.7972027972027972,
+      "test_accuracy": 0.7211538461538461
+    },
+    "SVM": {
+      "test_auc": 0.8336940836940836,
+      "test_f1": 0.8356164383561644,
+      "test_accuracy": 0.7692307692307693
+    },
+    "K-Nearest Neighbors": {
+      "test_auc": 0.6871091871091871,
+      "test_f1": 0.8246153846153846,
+      "test_accuracy": 0.7259615384615384
+    }
+  }
+}

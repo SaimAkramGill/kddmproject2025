@@ -1,0 +1,45 @@
+{
+  "original_shape": [
+    1041,
+    24
+  ],
+  "final_shape": [
+    1036,
+    30
+  ],
+  "feature_count": 28,
+  "feature_names": [
+    "power_level",
+    "weight",
+    "height",
+    "age",
+    "gender",
+    "speed",
+    "battle_iq",
+    "ranking",
+    "intelligence",
+    "training_time",
+    "secret_code",
+    "power_weight_ratio",
+    "speed_age_ratio",
+    "tactical_intelligence",
+    "hero_bmi",
+    "training_efficiency",
+    "ranking_category_num",
+    "name_encoded",
+    "role_encoded",
+    "skin_type_encoded",
+    "eye_color_encoded",
+    "hair_color_encoded",
+    "universe_encoded",
+    "body_type_encoded",
+    "job_encoded",
+    "species_encoded",
+    "abilities_encoded",
+    "special_attack_encoded"
+  ],
+  "preprocessing_steps": 31,
+  "missing_values_handled": 1701,
+  "engineered_features": 6,
+  "encoded_features": 11
+}

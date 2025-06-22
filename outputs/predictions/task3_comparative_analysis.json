@@ -1,0 +1,258 @@
+{
+  "performance_groups": {
+    "High Performers": {
+      "power_level": {
+        "villain_value": 16015.0,
+        "group_mean": 10771.056603773584,
+        "group_std": 5132.46182984937,
+        "villain_percentile_in_group": 83.01886792452831,
+        "vs_group_z_score": 1.0217208758823477
+      },
+      "speed": {
+        "villain_value": 1732.0,
+        "group_mean": 2125.08,
+        "group_std": 1128.8771479373365,
+        "villain_percentile_in_group": 46.666666666666664,
+        "vs_group_z_score": -0.34820440888384396
+      },
+      "battle_iq": {
+        "villain_value": 988.0,
+        "group_mean": 1000.8738738738739,
+        "group_std": 328.4663568524904,
+        "villain_percentile_in_group": 35.13513513513514,
+        "vs_group_z_score": -0.03919388882696247
+      },
+      "intelligence": {
+        "villain_value": 915.0,
+        "group_mean": 937.875,
+        "group_std": 268.77726323669884,
+        "villain_percentile_in_group": 34.61538461538461,
+        "vs_group_z_score": -0.08510764535858496
+      },
+      "ranking": {
+        "villain_value": 1218.0,
+        "group_mean": 2524.6036036036035,
+        "group_std": 1266.079103368702,
+        "villain_percentile_in_group": 19.81981981981982,
+        "vs_group_z_score": -1.032007873858021
+      },
+      "training_time": {
+        "villain_value": 9496.0,
+        "group_mean": 5982.858585858586,
+        "group_std": 3146.0083585462507,
+        "villain_percentile_in_group": 83.83838383838383,
+        "vs_group_z_score": 1.1166980547263432
+      }
+    },
+    "Medium Performers": {
+      "power_level": {
+        "villain_value": 16015.0,
+        "group_mean": 8856.749688667496,
+        "group_std": 4923.885254639586,
+        "villain_percentile_in_group": 91.78082191780823,
+        "vs_group_z_score": 1.4537808947898538
+      },
+      "speed": {
+        "villain_value": 1732.0,
+        "group_mean": 1519.066985645933,
+        "group_std": 874.2843473987135,
+        "villain_percentile_in_group": 73.84370015948963,
+        "vs_group_z_score": 0.2435512141874819
+      },
+      "battle_iq": {
+        "villain_value": 988.0,
+        "group_mean": 896.2733727810651,
+        "group_std": 344.44261563159824,
+        "villain_percentile_in_group": 56.331360946745555,
+        "vs_group_z_score": 0.2663045252131112
+      },
+      "intelligence": {
+        "villain_value": 915.0,
+        "group_mean": 836.0304955527318,
+        "group_std": 302.74641776720284,
+        "villain_percentile_in_group": 56.289707750952985,
+        "vs_group_z_score": 0.26084372865475763
+      },
+      "ranking": {
+        "villain_value": 1218.0,
+        "group_mean": 2525.0378698224854,
+        "group_std": 1445.1998782651613,
+        "villain_percentile_in_group": 24.733727810650887,
+        "vs_group_z_score": -0.9043993771930513
+      },
+      "training_time": {
+        "villain_value": 9496.0,
+        "group_mean": 167802.71465629054,
+        "group_std": 1442928.074349471,
+        "villain_percentile_in_group": 92.60700389105058,
+        "vs_group_z_score": -0.10971213151262683
+      }
+    },
+    "Low Performers": {
+      "power_level": {
+        "villain_value": 16015.0,
+        "group_mean": 5922.073529411765,
+        "group_std": 3312.470626470392,
+        "villain_percentile_in_group": 100.0,
+        "vs_group_z_score": 3.0469482174224645
+      },
+      "speed": {
+        "villain_value": 1732.0,
+        "group_mean": 1083.9464285714287,
+        "group_std": 595.2128242644233,
+        "villain_percentile_in_group": 94.64285714285714,
+        "vs_group_z_score": 1.0887762242513
+      },
+      "battle_iq": {
+        "villain_value": 988.0,
+        "group_mean": 734.3625,
+        "group_std": 386.6776776904126,
+        "villain_percentile_in_group": 71.25,
+        "vs_group_z_score": 0.6559403726508125
+      },
+      "intelligence": {
+        "villain_value": 915.0,
+        "group_mean": 681.3783783783783,
+        "group_std": 339.08905779329206,
+        "villain_percentile_in_group": 74.32432432432432,
+        "vs_group_z_score": 0.6889683292701143
+      },
+      "ranking": {
+        "villain_value": 1218.0,
+        "group_mean": 2829.475,
+        "group_std": 1364.0827768694605,
+        "villain_percentile_in_group": 15.0,
+        "vs_group_z_score": -1.1813615913385396
+      },
+      "training_time": {
+        "villain_value": 9496.0,
+        "group_mean": 3218.6666666666665,
+        "group_std": 2337.005379571075,
+        "villain_percentile_in_group": 100.0,
+        "vs_group_z_score": 2.686058572310797
+      }
+    }
+  },
+  "role_groups": {
+    "Heroes": {
+      "power_level": {
+        "villain_value": 16015.0,
+        "role_mean": 8892.331325301206,
+        "role_std": 4959.407174024861,
+        "villain_percentile_in_role": 90.56224899598394,
+        "vs_role_z_score": 1.4361935660383205
+      },
+      "speed": {
+        "villain_value": 1732.0,
+        "role_mean": 1575.2635869565217,
+        "role_std": 942.5184499123853,
+        "villain_percentile_in_role": 71.73913043478261,
+        "vs_role_z_score": 0.16629532616369277
+      },
+      "battle_iq": {
+        "villain_value": 988.0,
+        "role_mean": 890.0595009596929,
+        "role_std": 361.3502965786009,
+        "villain_percentile_in_role": 55.85412667946257,
+        "vs_role_z_score": 0.2710403172977696
+      },
+      "intelligence": {
+        "villain_value": 915.0,
+        "role_mean": 830.7427385892116,
+        "role_std": 319.54842780435496,
+        "villain_percentile_in_role": 55.601659751037346,
+        "vs_role_z_score": 0.2636760317981451
+      },
+      "ranking": {
+        "villain_value": 1218.0,
+        "role_mean": 2576.0019193857966,
+        "role_std": 1406.9331000702316,
+        "villain_percentile_in_role": 22.264875239923224,
+        "vs_role_z_score": -0.965221387795914
+      },
+      "training_time": {
+        "villain_value": 9496.0,
+        "role_mean": 91313.40631578947,
+        "role_std": 1140422.1817718023,
+        "villain_percentile_in_role": 92.42105263157895,
+        "vs_role_z_score": -0.07174308569540003
+      }
+    },
+    "Villains": {
+      "power_level": {
+        "villain_value": 16015.0,
+        "role_mean": 8826.768267223382,
+        "role_std": 4946.203732832855,
+        "villain_percentile_in_role": 92.27557411273486,
+        "vs_role_z_score": 1.453282582167249
+      },
+      "speed": {
+        "villain_value": 1732.0,
+        "role_mean": 1520.1025641025642,
+        "role_std": 882.9263156762952,
+        "villain_percentile_in_role": 73.58974358974359,
+        "vs_role_z_score": 0.2399944730780039
+      },
+      "battle_iq": {
+        "villain_value": 988.0,
+        "role_mean": 899.9533980582524,
+        "role_std": 339.37121670341696,
+        "villain_percentile_in_role": 54.5631067961165,
+        "vs_role_z_score": 0.2594403933162463
+      },
+      "intelligence": {
+        "villain_value": 915.0,
+        "role_mean": 839.5424430641822,
+        "role_std": 293.74285152392207,
+        "villain_percentile_in_role": 55.072463768115945,
+        "vs_role_z_score": 0.25688304087860553
+      },
+      "ranking": {
+        "villain_value": 1218.0,
+        "role_mean": 2520.677669902913,
+        "role_std": 1437.9750086399831,
+        "villain_percentile_in_role": 24.660194174757283,
+        "vs_role_z_score": -0.905911202959617
+      },
+      "training_time": {
+        "villain_value": 9496.0,
+        "role_mean": 184756.86808510637,
+        "role_std": 1451722.278846529,
+        "villain_percentile_in_role": 92.12765957446808,
+        "vs_role_z_score": -0.12072616824780047
+      }
+    }
+  },
+  "overall_ranking": {
+    "power_level": {
+      "percentile": 91.40225179119754,
+      "rank_position": 85,
+      "total_characters": 977
+    },
+    "speed": {
+      "percentile": 72.69129287598945,
+      "rank_position": 207,
+      "total_characters": 758
+    },
+    "battle_iq": {
+      "percentile": 55.21235521235521,
+      "rank_position": 465,
+      "total_characters": 1036
+    },
+    "intelligence": {
+      "percentile": 55.336787564766844,
+      "rank_position": 431,
+      "total_characters": 965
+    },
+    "ranking": {
+      "percentile": 23.455598455598455,
+      "rank_position": 794,
+      "total_characters": 1036
+    },
+    "training_time": {
+      "percentile": 92.27513227513228,
+      "rank_position": 73,
+      "total_characters": 945
+    }
+  }
+}
