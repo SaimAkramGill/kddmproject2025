@@ -39,11 +39,11 @@ class DataPreprocessor:
             'details': details
         }
         self.preprocessing_log.append(log_entry)
-        print(f"✅ {step_name}: {details}")
+        print(f" {step_name}: {details}")
     
     def clean_target_variable(self):
         """Clean and prepare target variable"""
-        print("\n🎯 CLEANING TARGET VARIABLE")
+        print("\n CLEANING TARGET VARIABLE")
         print("-" * 40)
         
         initial_rows = len(self.data)
@@ -75,7 +75,7 @@ class DataPreprocessor:
     
     def standardize_categorical_values(self):
         """Standardize inconsistent categorical values"""
-        print("\n📝 STANDARDIZING CATEGORICAL VALUES")
+        print("\n STANDARDIZING CATEGORICAL VALUES")
         print("-" * 40)
         
         # Standardize role spellings
@@ -113,7 +113,7 @@ class DataPreprocessor:
     
     def handle_missing_values(self):
         """Comprehensive missing value handling"""
-        print("\n🔧 HANDLING MISSING VALUES")
+        print("\n HANDLING MISSING VALUES")
         print("-" * 40)
         
         # Analyze missing patterns
@@ -159,7 +159,7 @@ class DataPreprocessor:
     
     def encode_categorical_features(self):
         """Encode categorical features for machine learning"""
-        print("\n🔤 ENCODING CATEGORICAL FEATURES")
+        print("\n ENCODING CATEGORICAL FEATURES")
         print("-" * 40)
         
         categorical_cols = self.data.select_dtypes(include=['object']).columns.tolist()
@@ -186,7 +186,7 @@ class DataPreprocessor:
     
     def feature_engineering(self):
         """Create new features from existing ones"""
-        print("\n⚗️ FEATURE ENGINEERING")
+        print("\n FEATURE ENGINEERING")
         print("-" * 40)
         
         new_features_count = 0
@@ -240,7 +240,7 @@ class DataPreprocessor:
     
     def handle_outliers(self, method='iqr', threshold=1.5):
         """Handle outliers in numerical features"""
-        print(f"\n📊 HANDLING OUTLIERS (method: {method.upper()})")
+        print(f"\n HANDLING OUTLIERS (method: {method.upper()})")
         print("-" * 40)
         
         numerical_cols = self.data.select_dtypes(include=[np.number]).columns.tolist()
@@ -298,7 +298,7 @@ class DataPreprocessor:
     
     def scale_features(self, method='standard'):
         """Scale numerical features"""
-        print(f"\n📏 SCALING FEATURES (method: {method})")
+        print(f"\n SCALING FEATURES (method: {method})")
         print("-" * 40)
         
         # Get numerical columns (excluding target)
@@ -329,7 +329,7 @@ class DataPreprocessor:
     
     def prepare_model_features(self):
         """Prepare final feature set for modeling"""
-        print("\n🎯 PREPARING MODEL FEATURES")
+        print("\n PREPARING MODEL FEATURES")
         print("-" * 40)
         
         # Define feature columns (exclude target variables)
@@ -356,7 +356,7 @@ class DataPreprocessor:
     
     def split_data(self, test_size=0.2, random_state=42):
         """Split data into training and testing sets"""
-        print(f"\n✂️ SPLITTING DATA (test_size: {test_size})")
+        print(f"\n SPLITTING DATA (test_size: {test_size})")
         print("-" * 40)
         
         # Prepare features and target
@@ -383,7 +383,7 @@ class DataPreprocessor:
     
     def preprocess_pipeline(self, scale_method='standard', outlier_method='iqr'):
         """Run the complete preprocessing pipeline"""
-        print("\n🚀 RUNNING COMPLETE PREPROCESSING PIPELINE")
+        print("\n RUNNING COMPLETE PREPROCESSING PIPELINE")
         print("=" * 60)
         
         # Step 1: Clean target variable
@@ -413,17 +413,17 @@ class DataPreprocessor:
         # Step 9: Split data
         X_train, X_test, y_train, y_test = self.split_data()
         
-        print(f"\n✅ PREPROCESSING COMPLETED!")
-        print(f"📊 Final dataset shape: {self.data.shape}")
-        print(f"🎯 Features for modeling: {len(self.feature_names)}")
-        print(f"📈 Training samples: {len(X_train)}")
-        print(f"📉 Testing samples: {len(X_test)}")
+        print(f"\n PREPROCESSING COMPLETED!")
+        print(f" Final dataset shape: {self.data.shape}")
+        print(f" Features for modeling: {len(self.feature_names)}")
+        print(f" Training samples: {len(X_train)}")
+        print(f" Testing samples: {len(X_test)}")
         
         return X_train, X_test, y_train, y_test
     
     def save_processed_data(self, X_train, X_test, y_train, y_test):
         """Save processed data and preprocessing objects"""
-        print("\n💾 SAVING PROCESSED DATA")
+        print("\n SAVING PROCESSED DATA")
         print("-" * 40)
         
         # Save processed datasets
@@ -452,7 +452,7 @@ class DataPreprocessor:
     
     def create_preprocessing_visualizations(self):
         """Create visualizations showing preprocessing effects"""
-        print("\n🎨 Creating preprocessing visualizations...")
+        print("\n Creating preprocessing visualizations...")
         
         # Create output directory
         os.makedirs('outputs/plots', exist_ok=True)
@@ -514,7 +514,7 @@ class DataPreprocessor:
     
     def generate_preprocessing_report(self):
         """Generate comprehensive preprocessing report"""
-        print("\n📝 Generating preprocessing report...")
+        print("\n Generating preprocessing report...")
         
         # Create reports directory
         os.makedirs('outputs/reports', exist_ok=True)
@@ -652,11 +652,11 @@ Total features for modeling: {len(self.feature_names)}
         with open('outputs/reports/preprocessing_summary.json', 'w') as f:
             json.dump(preprocessing_summary, f, indent=2)
         
-        print("✅ Preprocessing report saved to outputs/reports/")
+        print(" Preprocessing report saved to outputs/reports/")
 
 if __name__ == "__main__":
     # Test the preprocessing module
-    print("🧪 Testing DataPreprocessor module...")
+    print(" Testing DataPreprocessor module...")
     
     # Load sample data
     try:
@@ -683,10 +683,10 @@ if __name__ == "__main__":
         # Generate report
         preprocessor.generate_preprocessing_report()
         
-        print("✅ Preprocessing module test completed!")
-        print(f"📊 Final dataset: {X_train.shape[0] + X_test.shape[0]} samples, {X_train.shape[1]} features")
+        print("reprocessing module test completed!")
+        print(f" Final dataset: {X_train.shape[0] + X_test.shape[0]} samples, {X_train.shape[1]} features")
         
     except FileNotFoundError:
-        print("❌ data.csv not found. Please ensure the data file exists.")
+        print(" data.csv not found. Please ensure the data file exists.")
     except Exception as e:
-        print(f"❌ Error: {str(e)}")
+        print(f" Error: {str(e)}")
